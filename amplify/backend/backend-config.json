@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "interviewtask9d4157a6": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
