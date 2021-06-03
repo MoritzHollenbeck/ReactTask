@@ -1,6 +1,6 @@
 import face from './face.jpg';
 import './App.css';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+//import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 
 
 function App() {
@@ -20,9 +20,9 @@ function App() {
           Hello :)
         </a>
       </header>
-      <AmplifySignOut />
     </div>
   );
 }
 
-export default withAuthenticator(App);
+//export default withAuthenticator(App);
+export default App;
