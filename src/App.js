@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { API, Storage } from 'aws-amplify';
+import romantic from './romantic.png'
 //import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listNotes } from './graphql/queries';
 import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
+import { logDOM } from '@testing-library/dom';
 
 const initialFormState = { name: '', description: '' }
 
@@ -55,25 +57,25 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My Notes App</h1>
+      <h1>Official Sternzeichen Matcher (Nur für Gina)</h1>
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="Note name"
+        placeholder="Gina Sternzeichen"
         value={formData.name}
       />
       <input
         onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-        placeholder="Note description"
+        placeholder="Paul Sternzeichen"
         value={formData.description}
       />
-      <button onClick={createNote}>Create Note</button>
+      <button onClick={createNote}>Kompatibilität ausrechnen!</button>
       <div style={{marginBottom: 30}}>
       {
   notes.map(note => (
     <div key={note.id || note.name}>
-      <h2>{note.name}</h2>
-      <p>{note.description}</p>
-      <button onClick={() => deleteNote(note)}>Delete note</button>
+      <h2>Herzlichen Glückwunsch, Paul passt zu 84,3141% zu gina!!!!!!!</h2>
+      <img src={romantic} alt="Logo" />;
+      <button onClick={() => deleteNote(note)}>Nochmal ausprobieren!</button>
       {
         note.image && <img src={note.image} style={{width: 400}} />
       }
@@ -81,10 +83,6 @@ function App() {
   ))
 }
       </div>
-      <input
-        type="file"
-         onChange={onChange}
-      />
       
     </div>
   );
