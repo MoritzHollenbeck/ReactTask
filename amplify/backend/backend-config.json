@@ -24,5 +24,11 @@
         }
       }
     }
+  },
+  "storage": {
+    "reacttaskbucket": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }
