@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { API, Storage } from 'aws-amplify';
 import romantic from './emmafreund.png'
+import keinsinn from './keinsinn.png'
 //import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listNotes } from './graphql/queries';
 import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
@@ -58,19 +59,18 @@ function App() {
   return (
     <div className="App">
       <h1>Hallo Emma </h1>
-      <input
-        onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="hier einen lieben spruch"
-        value={formData.name}
-      />
-      
-      <button onClick={createNote}>Hilf mir!!</button>
+      <h2>Leben macht manchmal kein sinn frag nich wieso ...</h2>
+      <img src={keinsinn} alt="Logo" />;
+      <h2>Aber dann ist wieder allet jut hakuna matata</h2>
+      <img src={romantic} alt="Logo" />;
+      <div>ruf mal die nummer an, wenn du dich traust ... zitter nich</div>
+      <div>015256434915</div>
       <div style={{marginBottom: 30}}>
       {
   notes.map(note => (
     <div key={note.id || note.name}>
       <h2>Danke Emma, jetzt gehts mir wieder besser! ruf mal hier an </h2>
-      <img src={romantic} alt="Logo" />;
+      <img src={keinsinn} alt="Logo" />;
       <button onClick={() => deleteNote(note)}>Nochmal ausprobieren!</button>
       {
         note.image && <img src={note.image} style={{width: 400}} />
