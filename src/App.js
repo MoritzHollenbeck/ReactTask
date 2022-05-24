@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { API, Storage } from 'aws-amplify';
-import romantic from './romantic.png'
+import romantic from './emmafreund.png'
 //import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listNotes } from './graphql/queries';
 import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
@@ -31,7 +31,7 @@ function App() {
   }
 
   async function createNote() {
-    if (!formData.name || !formData.description) return;
+    if (!formData.name === "hakuna matata" || !formData.name === "Hakuna Matata") return;
     await API.graphql({ query: createNoteMutation, variables: { input: formData } });
     if (formData.image) {
       const image = await Storage.get(formData.image);
@@ -57,23 +57,19 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Official Sternzeichen Matcher (Nur für Gina)</h1>
+      <h1>Hallo Emma </h1>
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="Gina Sternzeichen"
+        placeholder="hier einen lieben spruch"
         value={formData.name}
       />
-      <input
-        onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-        placeholder="Paul Sternzeichen"
-        value={formData.description}
-      />
-      <button onClick={createNote}>Kompatibilität ausrechnen!</button>
+      
+      <button onClick={createNote}>Hilf mir!!</button>
       <div style={{marginBottom: 30}}>
       {
   notes.map(note => (
     <div key={note.id || note.name}>
-      <h2>Herzlichen Glückwunsch, Paul passt zu 84,3141% zu gina!!!!!!!</h2>
+      <h2>Danke Emma, jetzt gehts mir wieder besser! ruf mal hier an </h2>
       <img src={romantic} alt="Logo" />;
       <button onClick={() => deleteNote(note)}>Nochmal ausprobieren!</button>
       {
