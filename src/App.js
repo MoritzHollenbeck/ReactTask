@@ -63,7 +63,7 @@ function App() {
       <img src={keinsinn} alt="Logo" />;
       <h2>Aber dann ist wieder allet jut hakuna matata</h2>
       <img src={romantic} alt="Logo" />;
-      <div>ruf mal die nummer an, wenn du dich traust ... zitter nich</div>
+      <div>ruf mal die nummer an um 12 Uhr, wenn du dich traust ... aber zitter nich</div>
       <div>015256434915</div>
       <div style={{marginBottom: 30}}>
       {
